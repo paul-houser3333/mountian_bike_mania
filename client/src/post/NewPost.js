@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { isAuthenticate } from '../auth';
 import { Redirect } from 'react-router-dom';
-import DefaultAvatar from '../images/post.jpg';
 import { createPost } from './apiPost';
 
 class NewPost extends Component {
@@ -122,12 +121,7 @@ class NewPost extends Component {
           ''
         )}
 
-        {/* <img
-                    src={`${process.env.REACT_APP_API_URL}/post/photo/${id}`}
-                    onError={i => (i.target.src = `${DefaultAvatar}`)}
-                    style={{ width: "30%", height: "15vw", objectFit: "cover" }}
-                    alt={name}
-                /> */}
+        
 
         {this.newPostForm(title, content)}
       </div>

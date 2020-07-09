@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { isAuthenticate } from '../auth';
-import DefaultAvatar from '../images/post.jpg';
+import DefaultAvatar from '../images/MTBsymbol.jpg';
 import { getPost, likePost, unlikePost } from './apiPost';
 import { Link, Redirect } from 'react-router-dom';
 import DeletePost from './DeletePost';

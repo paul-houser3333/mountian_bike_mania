@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { findPeople, follow } from './apiUser';
-import DefaultProfile from '../images/avatar.png';
+import DefaultProfile from '../images/MTB2.jfif';
 import { Link } from 'react-router-dom';
 import { isAuthenticate } from '../auth';
 

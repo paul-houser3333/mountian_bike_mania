@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { isAuthenticate } from '../auth';
 import { Redirect } from 'react-router-dom';
-import DefaultAvatar from '../images/post.jpg';
+import DefaultAvatar from '../images/MTB3.jfif';
 import { getPost, editPost } from './apiPost';
 
 class EditPost extends Component {

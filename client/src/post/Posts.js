@@ -64,7 +64,7 @@ class Posts extends Component {
       <div className='container'>
         {!posts.length || posts.length == 'undefined' ? (
           <div className='jumbotron text-center'>
-            <h2>Welcome to Social Network</h2>
+            <h2>Welcome to Mountian Bike Mania!!!</h2>
           </div>
         ) : (
           <h2 className='mt-5 mb-5'>Recent Posts</h2>

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { isAuthenticate } from '../auth';
 import { newComment } from './apiPost';
-import DefaultAvatar from '../images/avatar.png';
+import DefaultAvatar from '../images/MTBsymbol.png';
 import { Link } from 'react-router-dom';
 import DeleteComment from './DeleteComment';
 

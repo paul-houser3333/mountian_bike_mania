@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { getUser, update, updateLocalStorage } from './apiUser';
 import { isAuthenticate } from '../auth';
 import { Redirect } from 'react-router-dom';
-import DefaultAvatar from '../images/avatar.png';
+import DefaultAvatar from '../images/MTBsymbol.png';
 
 class EditProfile extends Component {
   constructor() {
