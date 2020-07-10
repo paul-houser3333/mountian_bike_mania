@@ -21,16 +21,16 @@ class Signin extends Component {
     const { email, password } = this.state;
     const user = { email, password };
     this.setState({ loading: true });
-    signin(user).then(res => {
-      if (res.err) this.setState({ error: res.err, loading: false });
-      else {
-        //authenticate
-        //redirect
-        authenticate(res, () => {
-          this.setState({ redirect: true, loading: false });
-        });
-      }
-    });
+    // signin(user).then(res => {
+    //   if (res.err) this.setState({ error: res.err, loading: false });
+    //   else {
+    //     //authenticate
+    //     //redirect
+    //     authenticate(res, () => {
+    //       this.setState({ redirect: true, loading: false });
+    //     });
+    //   }
+    // });
   };
 
   signInForm = (email, password) => (
@@ -78,8 +78,8 @@ class Signin extends Component {
             <h2>Loading...</h2>
           </div>
         ) : (
-          ''
-        )}
+            ''
+          )}
 
         {this.signInForm(email, password)}
       </div>

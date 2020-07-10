@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { isAuthenticate } from '../auth';
 import { Redirect, Link } from 'react-router-dom';
 import { getUser } from './apiUser';
-import DefaultAvatar from '../images/avatar.png';
+import DefaultAvatar from '../images/MTBsymbol.png';
 import DeleteProfile from './DeleteProfile';
 import FollowProfileButton from './FollowProfileButton';
 import ProfileTabs from './ProfileTabs';

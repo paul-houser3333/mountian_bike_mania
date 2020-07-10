@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { getAllPost } from './apiPost';
-import DefaultAvatar from '../images/post.jpg';
+import DefaultAvatar from '../images/MTB.jpg';
 import { Link } from 'react-router-dom';
 
 class Posts extends Component {
@@ -11,14 +11,7 @@ class Posts extends Component {
     };
   }
 
-  componentDidMount() {
-    getAllPost().then(data => {
-      if (data.err) console.log(data.err);
-      else this.setState({ posts: data });
-    });
-  }
-
-  renderPost(posts) {
+   renderPost(posts) {
     return (
       <div className='row'>
         {posts.map(post => {
