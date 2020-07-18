@@ -1,5 +1,5 @@
 {
-  "/": "api docs",
+  "/": " docs",
   "/signup": "signup",
   "/signin": "signin",
   "/users": "get All users",

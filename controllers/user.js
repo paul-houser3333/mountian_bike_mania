@@ -3,6 +3,15 @@ const _ = require('lodash');
 const formidable = require('formidable');
 const fs = require('fs');
 
+
+// exports.createUser = (req, res) => {
+//   User.create(req.body)
+//     .then(dbmodel => (res.json(dbmodel))
+//       .catch(err => res.status(422).json(err))
+//     )
+// };
+
+
 exports.userById = (req, res, next, id) => {
   User.findById(id)
     .populate('following', '_id name')

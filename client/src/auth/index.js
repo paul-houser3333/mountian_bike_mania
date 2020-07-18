@@ -21,7 +21,7 @@ export const signin = user => {
     body: JSON.stringify(user)
   })
     .then(res => res.json())
-    .catch(err => console.log(err));
+    // .catch(err => console.log(err));
 };
 
 export const authenticate = (jwt, next) => {

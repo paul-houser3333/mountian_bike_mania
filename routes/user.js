@@ -11,11 +11,12 @@ const {
   addFollower,
   removeFollowing,
   removeFollower,
-  findPeople
+  findPeople,
 } = require('../controllers/user');
 const { requireSignin } = require('../controllers/auth');
 
 const router = express.Router();
+// router.post('/',createUser)
 router.put('/follow', requireSignin, addFollowing, addFollower);
 router.put('/unfollow', requireSignin, removeFollowing, removeFollower);
 

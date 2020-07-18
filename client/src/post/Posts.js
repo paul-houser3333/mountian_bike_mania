@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import { getAllPost } from './apiPost';
 import DefaultAvatar from '../images/MTB.jpg';
 import { Link } from 'react-router-dom';
+import './post-style.css';
+
 
 class Posts extends Component {
   constructor() {
@@ -11,12 +13,12 @@ class Posts extends Component {
     };
   }
 
-   renderPost(posts) {
+  renderPost(posts) {
     return (
       <div className='row'>
         {posts.map(post => {
           let photoUrl = post
-            ? `${process.env.REACT_APP_API_URL}/post/photo/${post._id}`
+            ? `post/photo/${post._id}`
             : DefaultAvatar;
           const posterId = post.postedBy ? post.postedBy._id : '';
           const posterName = post.postedBy ? post.postedBy.name : 'Unknown';
@@ -54,14 +56,19 @@ class Posts extends Component {
   render() {
     const { posts } = this.state;
     return (
+      //Div insert
+
       <div className='container'>
         {!posts.length || posts.length == 'undefined' ? (
-          <div className='jumbotron text-center'>
-            <h2>Welcome to Mountian Bike Mania!!!</h2>
+          <div className='jumbotron text-center background'>
+            <h2>Pull up a seat let's chat!</h2>
+             Todays subject hardtail vs full suppesion for xc racing??
+            <h3>Lets here your Thoughts </h3>
+
           </div>
         ) : (
-          <h2 className='mt-5 mb-5'>Recent Posts</h2>
-        )}
+            <h2 className='mt-5 mb-5'>Recent Posts</h2>
+          )}
 
         {this.renderPost(posts)}
       </div>

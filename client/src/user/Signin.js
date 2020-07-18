@@ -16,21 +16,29 @@ class Signin extends Component {
 
   handleChange = name => e => this.setState({ [name]: e.target.value });
 
+
+  // createUser = event => {
+  //   event.preventDefault 
+  //   API.createUser 
+  // }
   clickSubmit = e => {
     e.preventDefault();
+    // console.log("this is a test")
     const { email, password } = this.state;
     const user = { email, password };
     this.setState({ loading: true });
-    // signin(user).then(res => {
-    //   if (res.err) this.setState({ error: res.err, loading: false });
-    //   else {
-    //     //authenticate
-    //     //redirect
-    //     authenticate(res, () => {
-    //       this.setState({ redirect: true, loading: false });
-    //     });
-    //   }
-    // });
+    signin(user).then(res => {
+      if (res.err) this.setState({ error: res.err, loading: false });
+      else {
+        // authenticate
+        // redirect
+        authenticate(res, () => {
+          this.setState({ redirect: true, loading: false });
+        });
+      };
+      console.log("this is test",
+      res)
+    });
   };
 
   signInForm = (email, password) => (

@@ -105,7 +105,7 @@ class EditPost extends Component {
   );
 
   render() {
-    const { title, content, post, redirectToProfile, user, error } = this.state;
+    const { title, content, post, redirectToProfile, error } = this.state;
     if (redirectToProfile) return <Redirect to={`/post/${post._id}`} />;
     return (
       <div className='container'>
@@ -121,17 +121,17 @@ class EditPost extends Component {
             <h2>Loading...</h2>
           </div>
         ) : (
-          <>
-            <img
-              src={`${process.env.REACT_APP_API_URL}/post/photo/${post._id}`}
-              onError={i => (i.target.src = `${DefaultAvatar}`)}
-              style={{ width: '30%', height: '15vw', objectFit: 'cover' }}
-              alt={post.title}
-            />
+            <>
+              <img
+                src={`post/photo/${post._id}`}
+                onError={i => (i.target.src = `${DefaultAvatar}`)}
+                style={{ width: '30%', height: '15vw', objectFit: 'cover' }}
+                alt={post.title}
+              />
 
-            {this.newPostForm(title, content)}
-          </>
-        )}
+              {this.newPostForm(title, content)}
+            </>
+          )}
       </div>
     );
   }

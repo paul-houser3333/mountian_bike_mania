@@ -59,7 +59,7 @@ class SinglePost extends Component {
       comments
     } = this.state;
     let photoUrl = post
-      ? `${process.env.REACT_APP_API_URL}/post/photo/${post._id}`
+      ? `post/photo/${post._id}`
       : DefaultAvatar;
     const posterId = post.postedBy ? post.postedBy._id : '';
     const posterName = post.postedBy ? post.postedBy.name : 'Unknown';
@@ -71,55 +71,55 @@ class SinglePost extends Component {
             <h2>Loading...</h2>
           </div>
         ) : (
-          <>
-            <h2 className='mt-5 mb-5 display-2'>{post.title}</h2>
-            <img
-              className='card-img-top'
-              src={photoUrl}
-              onError={i => (i.target.src = `${DefaultAvatar}`)}
-              style={{ width: '100%', height: '30vw', objectFit: 'cover' }}
-              alt='Card image cap'
-            />
-            <br />
-            <br />
+            <>
+              <h2 className='mt-5 mb-5 display-2'>{post.title}</h2>
+              <img
+                className='card-img-top'
+                src={photoUrl}
+                onError={i => (i.target.src = `${DefaultAvatar}`)}
+                style={{ width: '100%', height: '30vw', objectFit: 'cover' }}
+                alt='Card image cap'
+              />
+              <br />
+              <br />
 
-            {!like ? (
-              <h3 onClick={this.likeToggle}>
-                <i className='fas fa-thumbs-up text-info'>
-                  {''} {likes} Like
+              {!like ? (
+                <h3 onClick={this.likeToggle}>
+                  <i className='fas fa-thumbs-up text-info'>
+                    {''} {likes} Like
                 </i>
-              </h3>
-            ) : (
-              <h3 onClick={this.likeToggle}>
-                <i className='fas fa-thumbs-down text-danger'>
-                  {''} {likes} Like
+                </h3>
+              ) : (
+                  <h3 onClick={this.likeToggle}>
+                    <i className='fas fa-thumbs-down text-danger'>
+                      {''} {likes} Like
                 </i>
-              </h3>
-            )}
-            <p className='card-text'>{post.content}</p>
-            <br />
-            <p className='font-italic mark'>
-              Posted By <Link to={`/user/${posterId}`}>{posterName}</Link>
+                  </h3>
+                )}
+              <p className='card-text'>{post.content}</p>
+              <br />
+              <p className='font-italic mark'>
+                Posted By <Link to={`/user/${posterId}`}>{posterName}</Link>
               on {new Date(post.created).toDateString()}
-            </p>
-            <Link to={`/`} className='btn btn-primary btn-raised btn-sm mr-5'>
-              Back to posts
+              </p>
+              <Link to={`/`} className='btn btn-primary btn-raised btn-sm mr-5'>
+                Back to posts
             </Link>
-            {isAuthenticate().user && isAuthenticate().user._id == posterId ? (
-              <div className='d-inline-block'>
-                <Link
-                  className='btn btn-raised btn-success mr-5'
-                  to={`/post/edit/${post._id}`}
-                >
-                  Update Post
+              {isAuthenticate().user && isAuthenticate().user._id == posterId ? (
+                <div className='d-inline-block'>
+                  <Link
+                    className='btn btn-raised btn-success mr-5'
+                    to={`/post/edit/${post._id}`}
+                  >
+                    Update Post
                 </Link>
-                <DeletePost postId={post._id} />
-              </div>
-            ) : (
-              ''
-            )}
-          </>
-        )}
+                  <DeletePost postId={post._id} />
+                </div>
+              ) : (
+                  ''
+                )}
+            </>
+          )}
         <Comment
           postId={post._id}
           comments={comments}

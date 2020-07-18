@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-const uuidv1 = require('uuid/v1');
+const { v1: uuidv1 } = require('uuid');
 const crypto = require('crypto');
 const { ObjectId } = mongoose.Schema;
 const userSchema = new mongoose.Schema({
@@ -33,7 +33,7 @@ const userSchema = new mongoose.Schema({
 
 userSchema
   .virtual('password')
-  .set(function(password) {
+  .set(function (password) {
     //create temporary variable called _password
     this._password = password;
     //generate a timestamp
@@ -44,11 +44,11 @@ userSchema
   .get(() => this._password);
 
 userSchema.methods = {
-  authenticate: function(plaintext) {
+  authenticate: function (plaintext) {
     return this.encryptPassword(plaintext) === this.hashed_password;
   },
 
-  encryptPassword: function(password) {
+  encryptPassword: function (password) {
     if (!password) return '';
     try {
       return crypto

@@ -31,46 +31,45 @@ class Signup extends Component {
         error: '',
         success: true
       });
-    },
-      // });
-      // };
+    })
+  };
 
-      signUpForm = (name, email, password) => (
-        <form>
-          <div className='form-group'>
-            <label className='text-muted'>Name</label>
-            <input
-              onChange={this.handleChange('name')}
-              value={name}
-              type='text'
-              className='form-control'
-            />
-          </div>
-          <div className='form-group'>
-            <label className='text-muted'>Email</label>
-            <input
-              onChange={this.handleChange('email')}
-              value={email}
-              type='email'
-              className='form-control'
-            />
-          </div>
-          <div className='form-group'>
-            <label className='text-muted'>Password</label>
-            <input
-              onChange={this.handleChange('password')}
-              value={password}
-              type='password'
-              className='form-control'
-            />
-          </div>
-          <button onClick={this.clickSubmit} className='btn btn-raised btn-primary'>
-            Submit
+  signUpForm = (name, email, password) => (
+    <form>
+      <div className='form-group'>
+        <label className='text-muted'>Name</label>
+        <input
+          onChange={this.handleChange('name')}
+          value={name}
+          type='text'
+          className='form-control'
+        />
+      </div>
+      <div className='form-group'>
+        <label className='text-muted'>Email</label>
+        <input
+          onChange={this.handleChange('email')}
+          value={email}
+          type='email'
+          className='form-control'
+        />
+      </div>
+      <div className='form-group'>
+        <label className='text-muted'>Password</label>
+        <input
+          onChange={this.handleChange('password')}
+          value={password}
+          type='password'
+          className='form-control'
+        />
+      </div>
+      <button onClick={this.clickSubmit} className='btn btn-raised btn-primary'>
+        Submit
       </button>
-        </form>
-      ),
+    </form>
+  )
 
-      render(),
+  render() {
     const { name, email, password, error, success } = this.state;
     return (
       <div className='container'>

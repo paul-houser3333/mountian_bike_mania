@@ -1,5 +1,5 @@
 export const getUser = (userId, token) => {
-  return fetch(`${process.env.REACT_APP_API_URL}/user/${userId}`, {
+  return fetch(`user/${userId}`, {
     method: 'GET',
     headers: {
       Accept: 'application/json',
@@ -12,19 +12,19 @@ export const getUser = (userId, token) => {
 };
 
 export const getAllUser = () => {
-  return fetch(`${process.env.REACT_APP_API_URL}/user`)
+  return fetch(`user`)
     .then(res => res.json())
     .catch(err => console.log(err));
 };
 
 export const findPeople = userId => {
-  return fetch(`${process.env.REACT_APP_API_URL}/user/findpeople/${userId}`)
+  return fetch(`user/findpeople/${userId}`)
     .then(res => res.json())
     .catch(err => console.log(err));
 };
 
 export const removeUser = (userId, token) => {
-  return fetch(`${process.env.REACT_APP_API_URL}/user/${userId}`, {
+  return fetch(`user/${userId}`, {
     method: 'DELETE',
     headers: {
       Accept: 'application/json',
@@ -37,7 +37,7 @@ export const removeUser = (userId, token) => {
 };
 
 export const update = (userId, token, user) => {
-  return fetch(`${process.env.REACT_APP_API_URL}/user/${userId}`, {
+  return fetch(`user/${userId}`, {
     method: 'PUT',
     headers: {
       Accept: 'application/json',
@@ -61,7 +61,7 @@ export const updateLocalStorage = (user, next) => {
 };
 
 export const follow = (userId, token, followId) => {
-  return fetch(`${process.env.REACT_APP_API_URL}/user/follow`, {
+  return fetch(`user/follow`, {
     method: 'PUT',
     headers: {
       Accept: 'application/json',
@@ -75,7 +75,7 @@ export const follow = (userId, token, followId) => {
 };
 
 export const unfollow = (userId, token, unfollowId) => {
-  return fetch(`${process.env.REACT_APP_API_URL}/user/unfollow`, {
+  return fetch(`user/unfollow`, {
     method: 'PUT',
     headers: {
       Accept: 'application/json',
@@ -87,3 +87,4 @@ export const unfollow = (userId, token, unfollowId) => {
     .then(res => res.json())
     .catch(err => console.log(err));
 };
+

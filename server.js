@@ -5,6 +5,7 @@ const mongoose = require('mongoose');
 const bodyParser = require('body-parser'); //get data raw from req to json in console
 const expressValidator = require('express-validator');
 const cookieParser = require('cookie-parser');
+// const session = require('session');
 const fs = require('fs');
 const cors = require('cors');
 const path = require('path');
@@ -18,7 +19,7 @@ const userRoutes = require('./routes/user');
 
 //db
 mongoose
-  .connect(process.env.MONGO_URI, {
+  .connect(process.env.MONGODB_URI || "mongodb://localhost/bikemania", {
     useNewUrlParser: true
   })
   .then(() => console.log('DB connected'));
@@ -32,7 +33,8 @@ mongoose.set('useFindAndModify', false);
 app.use(morgan('dev'));
 app.use(cors());
 app.use(bodyParser.json());
-app.use(cookieParser());
+app.use(cookieParser('123456'));
+// app.use(session());
 app.use(expressValidator());
 app.use(function(err, req, res, next) {
   if (err.name === 'UnauthorizedError') {

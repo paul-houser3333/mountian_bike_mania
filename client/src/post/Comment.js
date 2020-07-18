@@ -81,7 +81,7 @@ class Comment extends Component {
                           border: '2px solid black'
                         }}
                         className='mr-3'
-                        src={`${process.env.REACT_APP_API_URL}/user/photo/${comment.postedBy._id}`}
+                        src={`user/photo/${comment.postedBy._id}`}
                         onError={i => (i.target.src = `${DefaultAvatar}`)}
                         alt={comment.postedBy.name}
                         height='40px'
@@ -102,16 +102,16 @@ class Comment extends Component {
                       </Link>
                       {'  '}on {new Date(comment.created).toDateString()}
                       {isAuthenticate().user &&
-                      isAuthenticate().user._id == comment.postedBy._id ? (
-                        <DeleteComment
-                          userId={comment.postedBy._id}
-                          postId={this.props.postId}
-                          commentId={comment._id}
-                          updateComments={this.props.updateComments}
-                        />
-                      ) : (
-                        ''
-                      )}
+                        isAuthenticate().user._id === comment.postedBy._id ? (
+                          <DeleteComment
+                            userId={comment.postedBy._id}
+                            postId={this.props.postId}
+                            commentId={comment._id}
+                            updateComments={this.props.updateComments}
+                          />
+                        ) : (
+                          ''
+                        )}
                     </span>
                   </div>
                 </div>

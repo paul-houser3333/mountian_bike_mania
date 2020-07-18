@@ -44,17 +44,17 @@ class Profile extends Component {
   // initialize user's data
   init = userId => {
     const token = isAuthenticate().token;
-    getUser(userId, token) // read method must return something
+    getUser = (userId, token) // read method must return something
       .then(data => {
         if (data.error) {
           console.log('ERROR');
-          this.setState({ redirectToSignin: true });
+         return this.setState({ redirectToSignin: true });
         } else {
           console.log(data);
           let following = this.checkFollow(data);
           this.setState({ user: data, following });
           this.loadPosts(data._id);
-        }
+      }
       });
   };
 
@@ -86,9 +86,9 @@ class Profile extends Component {
     if (redirectToSignin) return <Redirect to='/signin' />;
 
     const photoUrl = user._id
-      ? `${process.env.REACT_APP_API_URL}/user/photo/${
-          user._id
-        }?${new Date().getTime()}`
+      ? `user/photo/${
+      user._id
+      }?${new Date().getTime()}`
       : DefaultAvatar;
 
     return (
@@ -124,11 +124,11 @@ class Profile extends Component {
                 <DeleteProfile userId={user._id} />
               </div>
             ) : (
-              <FollowProfileButton
-                following={this.state.following}
-                onButtonClick={this.clickFollowButton}
-              />
-            )}
+                <FollowProfileButton
+                  following={this.state.following}
+                  onButtonClick={this.clickFollowButton}
+                />
+              )}
           </div>
         </div>
         <div className='row'>
