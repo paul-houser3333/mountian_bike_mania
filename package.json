@@ -30,13 +30,11 @@
     "uuid1": "^0.1.3"
   },
   "engines": {
-    "node": "11.3.0"
+    "node": "12.14.0"
   },
   "directories": {
     "doc": "docs"
   },
-  "devDependencies": {},
-  "repository": {
     "type": "git",
     "url": "git+https://github.com/paul-houser3333/mountian_bike_mania.git"
   },
