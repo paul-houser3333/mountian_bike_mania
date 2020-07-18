@@ -35,6 +35,8 @@
   "directories": {
     "doc": "docs"
   },
+  "devDependencies": {},
+  "repository": {
     "type": "git",
     "url": "git+https://github.com/paul-houser3333/mountian_bike_mania.git"
   },
