@@ -1,5 +1,5 @@
 export const getUser = (userId, token) => {
-  return fetch(`user/${userId}`, {
+  return fetch(`/user/${userId}`, {
     method: 'GET',
     headers: {
       Accept: 'application/json',
@@ -18,7 +18,7 @@ export const getAllUser = () => {
 };
 
 export const findPeople = userId => {
-  return fetch(`user/findpeople/${userId}`)
+  return fetch(`/user/findpeople/${userId}`)
     .then(res => res.json())
     .catch(err => console.log(err));
 };
