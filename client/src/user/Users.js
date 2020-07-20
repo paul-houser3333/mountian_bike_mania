@@ -20,7 +20,7 @@ class Users extends Component {
           <img
             style={{ height: 'auto', width: '30vw' }}
             className='img-thumbnail'
-            src={`${process.env.REACT_APP_API_URL}/user/photo/${user._id}`}
+            src={`/user/photo/${user._id}`}
             onError={i => (i.target.src = `${DefaultAvatar}`)}
             alt={user.name}
           />

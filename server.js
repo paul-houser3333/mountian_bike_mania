@@ -1,6 +1,6 @@
+require('dotenv').config(); // .env
 const express = require('express');
 const morgan = require('morgan'); // show api in console
-const dotenv = require('dotenv'); // .env
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser'); //get data raw from req to json in console
 const expressValidator = require('express-validator');
@@ -11,7 +11,6 @@ const cors = require('cors');
 const path = require('path');
 
 const app = express();
-dotenv.config();
 
 const postRoutes = require('./routes/post');
 const authRoutes = require('./routes/auth');
@@ -36,7 +35,7 @@ app.use(bodyParser.json());
 app.use(cookieParser('123456'));
 // app.use(session());
 app.use(expressValidator());
-app.use(function(err, req, res, next) {
+app.use(function (err, req, res, next) {
   if (err.name === 'UnauthorizedError') {
     res.status(401).send('invalid token...');
   }
@@ -46,7 +45,7 @@ app.use('/post', postRoutes);
 app.use('/', authRoutes);
 app.use('/user', userRoutes);
 
-app.get('/', (req, res) => {
+/*app.get('/', (req, res) => {
   fs.readFile('docs/apiDocs.json', (err, data) => {
     if (err) {
       res.status(400).json({
@@ -56,7 +55,7 @@ app.get('/', (req, res) => {
     const docs = JSON.parse(data);
     res.json(docs);
   });
-});
+});*/
 
 const port = process.env.PORT || 5000;
 
