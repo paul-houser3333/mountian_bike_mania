@@ -1,6 +1,6 @@
 import React from 'react';
 import Posts from '../post/Posts';
-import MTBsymbol from '../images/MTBsymbol.png'
+import MTBlogo from '../images/MTBlogo.png'
 import './home-style.css';
 
 
@@ -16,7 +16,7 @@ const Home = () => (
       <div className='jumbotron text-center background'>
 
         <p className='lead'>Welcome to Mountain Bike Mania</p>
-        <img src={MTBsymbol} />
+        <img src={MTBlogo} />
 
         <Posts />
       </div>

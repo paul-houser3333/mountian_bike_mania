@@ -62,7 +62,7 @@ class EditProfile extends Component {
     const { name, email, password, fileSize } = this.state;
     const reg = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
     if (fileSize > 300000) {
-      this.setState({ error: 'File size should be less than 300kb ' });
+      this.setState({ error: 'File size should be less than 3500kb ' });
       return false;
     } else if (name.length === 0) {
       this.setState({ error: 'Name is required' });
