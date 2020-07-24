@@ -20,17 +20,19 @@ class Users extends Component {
     const token = isAuthenticate().token;
 
     findPeople(userId, token).then(data => {
-      if (data.error) {
-        console.log(data.error);
-      } else {
-        this.setState({ users: data });
+      if (data) {
+        if (data.error) {
+          console.log(data.error);
+        } else {
+          this.setState({ users: data });
+        }
       }
     });
   }
 
   clickFollow = (user, i) => {
     const userId = isAuthenticate().user._id;
-    const token = isAuthenticate().token;
+    const token = isAuthenticate().token
 
     follow(userId, token, user._id).then(data => {
       if (data.error) {

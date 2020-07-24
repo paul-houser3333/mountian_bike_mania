@@ -12,8 +12,8 @@ const fs = require('fs');
 // };
 
 
-exports.userById = (req, res, next, id) => {
-  User.findById(id)
+exports.userById = (req, res, next) => {
+  User.findById(req.params.userId)
     .populate('following', '_id name')
     .populate('followers', '_id name')
     .exec((err, user) => {
