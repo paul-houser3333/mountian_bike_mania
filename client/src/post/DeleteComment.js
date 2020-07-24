@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { isAuthenticate, signout } from '../auth';
 import { deleteComment } from './apiPost';
-import { Redirect } from 'react-router-dom';
+
 
 class DeleteComment extends Component {
   removeComment = () => {

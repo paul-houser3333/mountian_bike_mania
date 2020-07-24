@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { isAuthenticate, signout } from '../auth';
+import { isAuthenticate,} from '../auth';
 import { removePost } from './apiPost';
 import { Redirect } from 'react-router-dom';
 
@@ -11,9 +11,11 @@ class DeletePost extends Component {
   deletePost = () => {
     const token = isAuthenticate().token;
     const postId = this.props.postId;
+
     removePost(postId, token).then(data => {
-      if (data.err) console.log(data.err);
-      else {
+      if (data.err) {
+        console.log(data.err);
+      } else {
         this.setState({ redirect: true });
       }
     });

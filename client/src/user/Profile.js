@@ -140,7 +140,7 @@ class Profile extends Component {
               followers={user.followers}
               following={user.following}
               posts={posts}
-            />
+            /> 
           </div>
         </div>
       </div>

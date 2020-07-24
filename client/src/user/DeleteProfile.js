@@ -11,12 +11,14 @@ class DeleteProfile extends Component {
   deleteAcount = () => {
     const token = isAuthenticate().token;
     const userId = this.props.userId;
+    
     removeUser(userId, token).then(data => {
-      if (data.err) console.log(data.err);
-      else {
-        signout(() => console.log('Delete success'));
-        this.setState({ redirect: true });
-      }
+      if(data.err) 
+        console.log('data.err');
+       else {
+      signout(() => console.log('Delete success'));
+      this.setState({ redirect: true });
+    }
     });
   };
 

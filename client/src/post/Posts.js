@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { getAllPost } from './apiPost';
 import DefaultAvatar from '../images/MTB.jpg';
 import { Link } from 'react-router-dom';
-import './post-style.css';
 
 
 class Posts extends Component {
@@ -13,12 +12,24 @@ class Posts extends Component {
     };
   }
 
+  componentDidMount() {
+    getAllPost().then(data => {
+      if (data.err) {
+        console.log(data.err);
+      }
+      else {
+        console.log('post',data)
+        this.setState({ posts: data });
+      }
+    })
+  }
+
   renderPost(posts) {
     return (
       <div className='row'>
         {posts.map(post => {
           let photoUrl = post
-            ? `post/photo/${post._id}`
+            ? `/post/photo/${post._id}`
             : DefaultAvatar;
           const posterId = post.postedBy ? post.postedBy._id : '';
           const posterName = post.postedBy ? post.postedBy.name : 'Unknown';
@@ -59,18 +70,21 @@ class Posts extends Component {
       //Div insert
 
       <div className='container'>
-        {!posts.length || posts.length == 'undefined' ? (
+        {!posts ? (
           <div className='jumbotron text-center background'>
-            <h2>Pull up a seat let's chat!</h2>
-             Todays subject hardtail vs full suppesion for xc racing??
-            <h3>Lets here your Thoughts </h3>
+            <h2>Pull up a seat, let's chat!</h2>
+            
+            <h3>Lets here your Thoughts. Post a Comment! </h3>
 
           </div>
         ) : (
-            <h2 className='mt-5 mb-5'>Recent Posts</h2>
+            <div>
+              <h2 className='mt-5 mb-5'>Recent Posts</h2>
+              {this.renderPost(posts)}
+            </div>
           )}
 
-        {this.renderPost(posts)}
+
       </div>
     );
   }

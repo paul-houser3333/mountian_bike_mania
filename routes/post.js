@@ -12,24 +12,28 @@ const {
   likePost,
   unlikePost,
   comment,
-  deleteComment
+  deleteComment,
+  // deleteAcount
+  
 } = require('../controllers/post');
 const { createPostValidator } = require('../helpers');
 const { requireSignin } = require('../controllers/auth');
-const { userById } = require('../controllers/user');
+const { userById, removeUser } = require('../controllers/user');
 
 const router = express.Router();
 router.put('/like', requireSignin, likePost);
 router.put('/unlike', requireSignin, unlikePost);
 router.put('/comment', requireSignin, comment);
 router.put('/deletecomment', requireSignin, deleteComment);
+// router.put('/deleteAcount', requireSignin, removeUser, deleteAcount);
 router.get('/', getPosts);
 
 router.post('/new/:userId', requireSignin, createPost, createPostValidator);
 router.get('/by/:userId', requireSignin, postsByUser);
 router.get('/photo/:postId', getPhotoPost);
 router.get('/:postId', requireSignin, getPost);
-router.delete('/:postId', requireSignin, isPoster, deletePost);
+    
+router.delete('/:postId', requireSignin, isPoster, deletePost,);
 router.put('/:postId', requireSignin, isPoster, updatePost);
 
 router.param('userId', userById);

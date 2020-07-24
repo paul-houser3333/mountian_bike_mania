@@ -15,7 +15,8 @@ class EditProfile extends Component {
       redirectToProfile: false,
       error: '',
       loading: false,
-      fileSize: 0
+      fileSize: 0,
+      photo: '',
     };
   }
 
@@ -42,7 +43,7 @@ class EditProfile extends Component {
     e.preventDefault();
     if (this.isValid()) {
       this.setState({ loading: true });
-      const { id, name, email, password } = this.state;
+      const { id, } = this.state;
       // const user = { name, email, password: password || undefined }
       const token = isAuthenticate().token;
       update(id, token, this.userData).then(res => {
@@ -84,7 +85,7 @@ class EditProfile extends Component {
         <input
           onChange={this.handleChange('photo')}
           type='file'
-          accept='images/*'
+          accept='/images/*'
           className='form-control'
         />
       </div>
@@ -128,7 +129,8 @@ class EditProfile extends Component {
       id,
       redirectToProfile,
       error,
-      loading
+      loading,
+      
     } = this.state;
     if (redirectToProfile) return <Redirect to={`/user/${id}`} />;
     return (
@@ -149,7 +151,7 @@ class EditProfile extends Component {
           )}
 
         <img
-          src={`user/photo/${id}`}
+          src={`/user/photo/${id}`}
           onError={i => (i.target.src = `${DefaultAvatar}`)}
           style={{ width: '30%', height: '15vw', objectFit: 'cover' }}
           alt={name}

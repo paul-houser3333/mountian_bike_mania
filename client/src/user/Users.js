@@ -11,7 +11,15 @@ class Users extends Component {
     };
   }
 
-  
+  componentDidMount() {
+    getAllUser().then(data => {
+      if (data.error) {
+        console.log(data.error);
+      } else {
+        this.setState({ users: data });
+      }
+    });
+  }
 
   renderUsers = users => (
     <div className='row'>

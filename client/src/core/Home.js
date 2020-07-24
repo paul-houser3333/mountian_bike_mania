@@ -15,11 +15,12 @@ const Home = () => (
     <div className="background" >
       <div className='jumbotron text-center background'>
 
-        <p className='lead'>Welcome to Mountain Bike Mania</p>
+      <p className="'mt-5 mb-5'">Welcome to Mountain Bike Mania</p>
         <img src={MTBlogo} />
 
-        <Posts />
-      </div>
+      <Posts />
+    </div>
+    
     </div>
 
   

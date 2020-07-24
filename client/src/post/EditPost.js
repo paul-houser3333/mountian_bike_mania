@@ -59,7 +59,7 @@ class EditPost extends Component {
   isValid = () => {
     const { title, content, fileSize } = this.state;
     if (fileSize > 300000) {
-      this.setState({ error: 'File size should be less than 300kb ' });
+      this.setState({ error: 'File size should be less than 31000kb ' });
       return false;
     } else if (title.length === 0 || content.length === 0) {
       this.setState({ error: 'All field is required' });

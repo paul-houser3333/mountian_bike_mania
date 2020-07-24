@@ -9,10 +9,10 @@ export const getUser = (userId, token) => {
   })
     .then(res => res.json())
     .catch(err => console.log(err));
-};
+    };
 
 export const getAllUser = () => {
-  return fetch(`user`)
+  return fetch(`/user`)
     .then(res => res.json())
     .catch(err => console.log(err));
 };
@@ -24,7 +24,7 @@ export const findPeople = userId => {
 };
 
 export const removeUser = (userId, token) => {
-  return fetch(`user/${userId}`, {
+  return fetch(`/user/${userId}`, {
     method: 'DELETE',
     headers: {
       Accept: 'application/json',
@@ -37,7 +37,7 @@ export const removeUser = (userId, token) => {
 };
 
 export const update = (userId, token, user) => {
-  return fetch(`user/${userId}`, {
+  return fetch(`/user/${userId}`, {
     method: 'PUT',
     headers: {
       Accept: 'application/json',
@@ -61,7 +61,7 @@ export const updateLocalStorage = (user, next) => {
 };
 
 export const follow = (userId, token, followId) => {
-  return fetch(`user/follow`, {
+  return fetch(`/user/follow`, {
     method: 'PUT',
     headers: {
       Accept: 'application/json',
@@ -75,7 +75,7 @@ export const follow = (userId, token, followId) => {
 };
 
 export const unfollow = (userId, token, unfollowId) => {
-  return fetch(`user/unfollow`, {
+  return fetch(`/user/unfollow`, {
     method: 'PUT',
     headers: {
       Accept: 'application/json',

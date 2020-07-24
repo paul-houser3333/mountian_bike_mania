@@ -1,6 +1,14 @@
  .background{
-  margin: 80x;
   
-  color:rgb(36, 131, 41);
+  background-image: url(brick_wall7.jpg)!important;
   
- }
+  background-repeat: no-repeat !important;
+  background-size: cover !important;
+  border-bottom: solid 00.1px rgb(59, 53, 51)!important;
+  color: rgb(223, 132, 27) !important;
+  font-style: italic !important;
+  font-size: 0.6in !important;
+  font-weight: bolder
+ };
+
+ 
